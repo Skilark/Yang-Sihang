@@ -13,7 +13,9 @@ namespace ProgramWinForm
 {
     public partial class Form1 : Form
     {
-
+        List<Order> orders = new List<Order>();
+        OrderService os = new OrderService();
+        BindingSource bs = new BindingSource();
 
         public Form1()
         {
@@ -35,15 +37,19 @@ namespace ProgramWinForm
             order1.AddDetails(orderDetails1);
             order1.AddDetails(orderDetails2);
             order1.AddDetails(orderDetails3);
-            //order1.AddOrderDetails(orderDetails3);
+
             order2.AddDetails(orderDetails2);
             order2.AddDetails(orderDetails3);
             order3.AddDetails(orderDetails3);
 
-            OrderService os = new OrderService();
             os.AddOrder(order1);
             os.AddOrder(order2);
             os.AddOrder(order3);
+
+            this.dataGridView1.DataSource = os;
+            
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
