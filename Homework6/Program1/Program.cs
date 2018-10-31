@@ -60,9 +60,6 @@ namespace ordertest
                 os.QueryAllOrders().ForEach(
                     od => Console.WriteLine(od));
 
-                //调用Export和Import方法，将订单序列化为xml文件并从文件中载入订单
-                os.Export(orders);
-                os.Import();
             }
             catch (Exception e)
             {

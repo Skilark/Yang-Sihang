@@ -120,26 +120,5 @@ namespace ordertest
 
 
 
-        public static void XmlSerialize(XmlSerializer ser,string fileName,object obj)
-        {
-            FileStream fs = new FileStream(fileName, FileMode.Create);
-            ser.Serialize(fs, obj);
-            fs.Close();
-        }
-        //Homework6:添加一个Export方法，将所有订单序列化为XML文件
-        public void Export(List<Order> orders)
-        {
-            XmlSerializer xmlser = new XmlSerializer(typeof(List<Order>));
-            String xmlFileName = "s.xml";
-            XmlSerialize(xmlser, xmlFileName, orders);
-        }
-
-        //添加一个Import方法，从XML文件中载入订单
-        public void Import()
-        {
-            string xml = File.ReadAllText("s.xml");
-            Console.WriteLine(xml);
-        }
-
     }
 }
