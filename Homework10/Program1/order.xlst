@@ -1,0 +1,41 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<xsl: stylesheet xmlns:xsl = "http://www.w3.org/1999/XSL/Transform" version = "1.0">
+	<xsl: template match = "ArrayOfOrder">
+		<html>
+			<head><title>Order List</title></head>
+			<body>
+			<table class = "Orders">
+			<tr>
+				<th>Order Id</th>
+				<th>Customer Name</th>
+				<th>Detail</th>
+			</tr>
+			<tbody>
+				<xsl: for-each select = "Order/Id">
+				<xsl:sort select = "rank"/>
+				<tr>
+				 <td><xsl:value-of select = "Id"/></td>
+				</tr>
+				</xsl:for-each>
+				<xsl: for-each select = "Order/Customer">
+				<xsl:sort select = "rank"/>
+				<tr>
+				 <td><xsl:value-of select = "Id"/></td>
+				 <td><xsl:value-of select = "Name"/></td>
+				 <td><xsl:value-of select = "PhoneNum"/></td>
+				</tr>
+				</xsl:for-each>
+				<xsl: for-each select = "Order/Details">
+				<xsl:sort select = "rank"/>
+				<tr>
+				 <td><xsl:value-of select = "Id"/></td>
+				 <td><xsl:value-of select = "Goods"/></td>
+				 <td><xsl:value-of select = "Quantity"/></td>
+				</tr>
+				</xsl:for-each>
+			</tbody>
+			</table>
+			</body>
+		</html>
+</xsl:template>
+</xsl:stylesheet>
